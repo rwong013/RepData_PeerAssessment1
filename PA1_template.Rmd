@@ -26,7 +26,7 @@ library(ggplot2)
 activitybyday <- activity %>% group_by(date) %>% summarize_each(funs(sum(., na.rm=TRUE)), steps)
 meansteps <- floor(mean(activitybyday$steps, na.rm=TRUE))
 mediansteps <- floor(median(activitybyday$steps, na.rm=TRUE))
-qplot(data=activitybyday, date, steps, geom = "histogram", stat = "identity")
+qplot(data=activitybyday, steps, geom = "histogram")
 ```
 
 The mean total number of steps taken each day is `r meansteps`. 
@@ -71,7 +71,7 @@ The effect that filling this data in is as follows:
 activityfillbyday <- activityfill %>% group_by(date) %>% summarize_each(funs(sum), steps)
 meanstepsfill <- floor(mean(activityfillbyday$steps))
 medianstepsfill <- floor(median(activityfillbyday$steps))
-qplot(data=activityfillbyday, date, steps, geom = "histogram", stat = "identity")
+qplot(data=activityfillbyday, steps, geom = "histogram")
 ```
 
 Using the filled in data, the mean total number of steps taken each day is `r signif(meanstepsfill, digits = 5)` whereas previously it was `r meansteps`.
