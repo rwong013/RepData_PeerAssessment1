@@ -74,7 +74,7 @@ medianstepsfill <- floor(median(activityfillbyday$steps))
 qplot(data=activityfillbyday, date, steps, geom = "histogram", stat = "identity")
 ```
 
-Using the filled in data, the mean total number of steps taken each day is `r meanstepsfill` whereas previously it was `r meansteps`.
+Using the filled in data, the mean total number of steps taken each day is `r signif(meanstepsfill, digits = 5)` whereas previously it was `r meansteps`.
 Using the filled in data, the median number of steps taken each day is `r medianstepsfill` whereas previously it was `r mediansteps`.
 
 ## Are there differences in activity patterns between weekdays and weekends?
